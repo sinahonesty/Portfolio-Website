@@ -14,7 +14,6 @@ export const projects: Project[] = [
         title: "Statistical Deep Dive into World Happiness",
         category: ProjectCategory.Analytics,
         description: "A comprehensive statistical analysis of the World Happiness Index, building predictive models and testing hypotheses about global well-being pre- and post-COVID.",
-        imageUrl: "https://picsum.photos/seed/happiness/800/600",
         tags: ['R', 'Statistics', 'Data Visualization', 'ggplot2', 'T-test', 'Regression'],
         details: {
             problem: "The World Happiness Report provides a wealth of data, but the underlying drivers and temporal shifts (especially around the COVID-19 pandemic) are not immediately obvious. The project aimed to uncover statistically significant relationships and changes in global happiness.",
@@ -49,7 +48,6 @@ happiness_ttest <- t.test(before, after, paired = TRUE, alternative = "less")
         title: "Systems Dynamics Model of School Segregation",
         category: ProjectCategory.Design,
         description: "A causal loop diagram developed using Systems Dynamics principles to model the complex, interconnected factors contributing to school racism and segregation in San Francisco.",
-        imageUrl: "https://picsum.photos/seed/systemsmodel/800/600",
         tags: ['Systems Thinking', 'Causal Loop Diagram', 'Vensim', 'Social Science', 'Modeling'],
         details: {
             problem: "Social issues like school segregation are multifaceted, with numerous feedback loops that make simple solutions ineffective. The challenge was to create a holistic model that visualizes these interconnected drivers to foster a deeper understanding of the problem.",
@@ -79,7 +77,6 @@ public education racist policies = A FUNCTION OF( SFUSD goals of equity and dive
         title: "Data Mining for Fuel Consumption Insights",
         category: ProjectCategory.Analytics,
         description: "An analysis of vehicle data to understand and model the factors influencing fuel consumption, using data mining techniques within Microsoft Excel.",
-        imageUrl: "https://picsum.photos/seed/fuel/800/600",
         tags: ['Data Mining', 'Microsoft Excel', 'Sensitivity Analysis', 'Predictive Modeling'],
         details: {
             problem: "Predicting vehicle fuel efficiency is essential for consumers, manufacturers, and regulators. This project aimed to identify the key variables that impact fuel consumption from a large dataset of cars.",
@@ -115,7 +112,6 @@ public education racist policies = A FUNCTION OF( SFUSD goals of equity and dive
         title: "Simple CLI To-Do List",
         category: ProjectCategory.Automation,
         description: "A lightweight, command-line interface (CLI) to-do list application built with Python to automate simple task tracking.",
-        imageUrl: "https://picsum.photos/seed/pythoncli/800/600",
         tags: ['Python', 'CLI', 'Scripting', 'Automation'],
         details: {
             problem: "Managing simple daily tasks often doesn't require complex software. The goal was to create a fast, simple, and keyboard-driven task manager that runs directly in the terminal.",

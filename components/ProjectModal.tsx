@@ -35,8 +35,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                     </svg>
                 </button>
 
-                <img src={project.imageUrl} alt={project.title} className="w-full h-64 object-cover rounded-t-lg" />
-
                 <div className="p-8 md:p-12">
                     <span className="text-sm font-semibold text-brand-accent uppercase">{project.category}</span>
                     <h2 className="text-4xl font-bold text-white mt-2 mb-4">{project.title}</h2>

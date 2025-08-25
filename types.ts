@@ -10,7 +10,6 @@ export interface Project {
     title: string;
     category: ProjectCategory;
     description: string;
-    imageUrl: string;
     tags: string[];
     details: {
         problem: string;
