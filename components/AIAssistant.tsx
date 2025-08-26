@@ -5,7 +5,7 @@ import type { Message } from '../types';
 const AIAssistant = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
-        { sender: 'ai', text: "Hello! I'm Sina's AI assistant. Ask me anything about his projects or skills." }
+        { sender: 'ai', text: "Hello! I'm Sina's AI assistant, built on the philosophy 'Automate the routine, elevate the human.' Ask me for details about his projects, technical skills, or professional experience." }
     ]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);

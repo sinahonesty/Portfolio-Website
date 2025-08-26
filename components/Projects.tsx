@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo, useEffect } from 'react';
 import type { Project } from '../types';
 import { ProjectCategory } from '../types';
@@ -236,6 +235,13 @@ const Projects: React.FC<ProjectsProps> = ({ projects, onProjectSelect }) => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="mt-24 max-w-5xl mx-auto">
+                <img 
+                    src="/Fiverr Banner-bp.png" 
+                    alt="Sina SB freelance services banner" 
+                    className="rounded-lg shadow-xl w-full"
+                />
             </div>
         </section>
     );

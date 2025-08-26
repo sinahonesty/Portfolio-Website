@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const testimonials = [
@@ -46,7 +45,6 @@ const IconCommunication = () => (
     </svg>
 );
 
-
 const competencies = [
     { name: 'Systems Thinking & Modeling', icon: <IconSystems /> },
     { name: 'Strategic Planning & Analysis', icon: <IconStrategy /> },
@@ -67,14 +65,22 @@ const About = () => {
             </div>
 
             <div className="mt-16 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                <div className="space-y-6 text-lg text-gray-600 dark:text-brand-light">
-                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white">About Me</h3>
-                    <p>
-                        I am a versatile <span className="text-brand-accent font-semibold">change facilitator</span>, a meticulous <span className="text-brand-accent font-semibold">data analyst</span>, and a thoughtful <span className="text-brand-accent font-semibold">product designer</span>. My background is rooted in interdisciplinary fields like Systems Science and Business Analytics, which allows me to work at the intersection of Education, Technology, and Art.
-                    </p>
-                    <p>
-                        Described as a "Translator," I excel at bridging gaps between different disciplines, synthesizing complex ideas, and making them accessible. This ability allows me to facilitate collaboration and drive innovation in dynamic, fast-paced environments. I am passionate about helping individuals and organizations achieve holistic transformations.
-                    </p>
+                 <div className="space-y-6 text-lg text-gray-600 dark:text-brand-light flex flex-col h-full">
+                    <div className="flex-grow">
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">About Me</h3>
+                        <p>
+                            I am a versatile <span className="text-brand-accent font-semibold">change facilitator</span>, a meticulous <span className="text-brand-accent font-semibold">data analyst</span>, and a thoughtful <span className="text-brand-accent font-semibold">product designer</span>. My background is rooted in interdisciplinary fields like Systems Science and Business Analytics, which allows me to work at the intersection of Education, Technology, and Art.
+                        </p>
+                        <p className="mt-4">
+                            Described as a "Translator," I excel at bridging gaps between different disciplines, synthesizing complex ideas, and making them accessible. This ability allows me to facilitate collaboration and drive innovation in dynamic, fast-paced environments. I am passionate about helping individuals and organizations achieve holistic transformations.
+                        </p>
+                    </div>
+                    <div className="mt-8">
+                        <a href="https://sinasb.link/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-transparent border-2 border-brand-accent text-brand-accent font-bold py-3 px-8 rounded-md hover:bg-brand-accent hover:text-white dark:hover:text-brand-dark transition-colors duration-300">
+                            Contact Me
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
+                        </a>
+                    </div>
                 </div>
                 <div className="space-y-4">
                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Core Competencies</h3>
@@ -97,9 +103,9 @@ const About = () => {
                     {testimonials.map((testimonial, index) => (
                         <div key={index} className="bg-gray-50 dark:bg-brand-secondary p-8 rounded-lg border border-gray-200 dark:border-gray-800">
                            <p className="text-gray-600 dark:text-brand-light italic mb-6">&ldquo;{testimonial.quote}&rdquo;</p>
-                           <div className="text-right">
-                               <p className="font-bold text-gray-900 dark:text-white">{testimonial.name}</p>
-                               <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.title}</p>
+                           <div className="mt-6">
+                               <p className="font-bold text-gray-900 dark:text-white">— {testimonial.name}</p>
+                               <p className="text-sm text-gray-500 dark:text-gray-400 pl-4">{testimonial.title}</p>
                            </div>
                         </div>
                     ))}
