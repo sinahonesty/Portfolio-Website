@@ -15,7 +15,17 @@
       }
     </style>
     <script>
+        // IIFE to set theme before React loads, preventing FOUC
+        (function() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+
         tailwind.config = {
+            darkMode: 'class', // Enable class-based dark mode
             theme: {
                 extend: {
                     fontFamily: {
@@ -57,7 +67,7 @@
 }
 </script>
 </head>
-<body class="bg-brand-dark text-brand-light font-sans antialiased">
+<body class="bg-white dark:bg-brand-dark text-gray-800 dark:text-brand-light font-sans antialiased transition-colors duration-300">
 <div id="root"></div>
 <script type="module" src="/index.tsx"></script>
 </body>

@@ -37,8 +37,8 @@ const Projects: React.FC<ProjectsProps> = ({ projects, onProjectSelect }) => {
     return (
         <section id="projects" className="py-20 md:py-32">
             <div className="text-center mb-12">
-                <h2 className="text-4xl md:text-5xl font-bold text-white">Projects</h2>
-                <p className="text-brand-light mt-4">A selection of my work. Click on a project to learn more.</p>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Projects</h2>
+                <p className="text-gray-600 dark:text-brand-light mt-4">A selection of my work. Click on a project to learn more.</p>
             </div>
             
             <div className="mb-12 w-full max-w-2xl mx-auto space-y-8">
@@ -48,7 +48,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, onProjectSelect }) => {
                         placeholder="Search projects by title, description, or tag..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="w-full bg-brand-secondary border border-gray-700 rounded-full py-3 px-6 pl-12 text-brand-light placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent"
+                        className="w-full bg-gray-100 dark:bg-brand-secondary border border-gray-300 dark:border-gray-700 rounded-full py-3 px-6 pl-12 text-gray-900 dark:text-brand-light placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-brand-accent"
                         aria-label="Search projects"
                     />
                     <div className="absolute inset-y-0 left-0 flex items-center pl-4 text-gray-500 pointer-events-none">
@@ -60,7 +60,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, onProjectSelect }) => {
                 <div className="flex justify-center flex-wrap gap-2 md:gap-4">
                     <button
                         onClick={() => setActiveCategory('All')}
-                        className={`px-4 py-2 text-sm md:text-base font-medium rounded-full transition-colors duration-300 ${activeCategory === 'All' ? 'bg-brand-accent text-brand-dark' : 'bg-brand-secondary text-brand-light hover:bg-gray-700'}`}
+                        className={`px-4 py-2 text-sm md:text-base font-medium rounded-full transition-colors duration-300 ${activeCategory === 'All' ? 'bg-brand-accent text-white dark:text-brand-dark' : 'bg-gray-100 dark:bg-brand-secondary text-gray-700 dark:text-brand-light hover:bg-gray-200 dark:hover:bg-gray-700'}`}
                     >
                         All
                     </button>
@@ -68,7 +68,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects, onProjectSelect }) => {
                         <button
                             key={category}
                             onClick={() => setActiveCategory(category)}
-                            className={`px-4 py-2 text-sm md:text-base font-medium rounded-full transition-colors duration-300 ${activeCategory === category ? 'bg-brand-accent text-brand-dark' : 'bg-brand-secondary text-brand-light hover:bg-gray-700'}`}
+                            className={`px-4 py-2 text-sm md:text-base font-medium rounded-full transition-colors duration-300 ${activeCategory === category ? 'bg-brand-accent text-white dark:text-brand-dark' : 'bg-gray-100 dark:bg-brand-secondary text-gray-700 dark:text-brand-light hover:bg-gray-200 dark:hover:bg-gray-700'}`}
                         >
                             {category}
                         </button>

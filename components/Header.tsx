@@ -1,8 +1,13 @@
-
 import React, { useState, useEffect } from 'react';
 import { NAV_LINKS } from '../constants';
+import ThemeToggle from './ThemeToggle';
 
-const Header = () => {
+interface HeaderProps {
+    theme: 'light' | 'dark';
+    setTheme: (theme: 'light' | 'dark') => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ theme, setTheme }) => {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
@@ -20,20 +25,23 @@ const Header = () => {
     }, [scrolled]);
 
     return (
-        <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-brand-secondary/80 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
+        <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/80 dark:bg-brand-secondary/80 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
             <div className="container mx-auto flex justify-between items-center p-4">
-                <a href="#home" className="text-2xl font-bold text-white tracking-wider">
+                <a href="#home" className="text-2xl font-bold text-gray-900 dark:text-white tracking-wider">
                     Sina<span className="text-brand-accent">.</span>
                 </a>
                 <nav>
-                    <ul className="flex items-center space-x-6">
+                    <ul className="flex items-center space-x-2 md:space-x-6">
                         {NAV_LINKS.map((link) => (
                             <li key={link.name}>
-                                <a href={link.href} className="text-brand-light hover:text-brand-accent transition-colors duration-300">
+                                <a href={link.href} className="text-gray-600 dark:text-brand-light hover:text-brand-accent dark:hover:text-brand-accent transition-colors duration-300">
                                     {link.name}
                                 </a>
                             </li>
                         ))}
+                         <li>
+                            <ThemeToggle theme={theme} setTheme={setTheme} />
+                        </li>
                     </ul>
                 </nav>
             </div>
