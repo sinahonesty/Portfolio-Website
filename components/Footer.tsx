@@ -1,5 +1,5 @@
 import React from 'react';
-import { GithubIcon, LinkedInIcon } from '../constants';
+import { LinkIcon } from '../constants';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -10,11 +10,8 @@ const Footer = () => {
                     &copy; {currentYear} Sina S.B. All rights reserved.
                 </p>
                 <div className="flex items-center space-x-4">
-                    <a href="https://github.com/sinasb" target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 hover:text-brand-accent dark:hover:text-brand-accent transition-colors">
-                        <GithubIcon />
-                    </a>
-                    <a href="https://www.linkedin.com/in/sinasb" target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 hover:text-brand-accent dark:hover:text-brand-accent transition-colors">
-                        <LinkedInIcon />
+                    <a href="https://sinasb.link/" target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 hover:text-brand-accent dark:hover:text-brand-accent transition-colors" aria-label="Sina's Links">
+                        <LinkIcon />
                     </a>
                 </div>
             </div>

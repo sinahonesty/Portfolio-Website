@@ -35,20 +35,19 @@ const FunIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
+const iconMap: Record<ProjectCategory, React.ComponentType<{ className?: string }>> = {
+    [ProjectCategory.Analytics]: AnalyticsIcon,
+    [ProjectCategory.Design]: DesignIcon,
+    [ProjectCategory.Automation]: AutomationIcon,
+    [ProjectCategory.Fun]: FunIcon,
+};
 
 const ProjectIcon: React.FC<ProjectIconProps> = ({ category, className = "h-24 w-24 text-brand-accent" }) => {
-    switch (category) {
-        case ProjectCategory.Analytics:
-            return <AnalyticsIcon className={className} />;
-        case ProjectCategory.Design:
-            return <DesignIcon className={className} />;
-        case ProjectCategory.Automation:
-            return <AutomationIcon className={className} />;
-        case ProjectCategory.Fun:
-            return <FunIcon className={className} />;
-        default:
-            return null;
+    const IconComponent = iconMap[category];
+    if (!IconComponent) {
+        return null;
     }
+    return <IconComponent className={className} />;
 };
 
 export default ProjectIcon;
