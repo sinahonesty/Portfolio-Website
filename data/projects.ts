@@ -383,5 +383,19 @@ print(f'Tuned Model Accuracy: {accuracy:.2f}')
             techStack: ["MS Word", "MS PowerPoint", "Visio", "Systems Thinking"],
             businessImpact: "The project delivered actionable recommendations that helped a non-profit organization rethink its structure for future viability. The research provides a transferable model for other organizations undergoing transformation, showcasing an ability to translate complex academic theory into practical design and documentation."
         }
+    },
+    {
+        id: 18,
+        title: "BRBytes Project Showcase & Exit Presentation",
+        category: ProjectCategory.Design,
+        description: "A capstone presentation summarizing a 9-month contract, showcasing work on database management, website/dashboard redesign, and strategic planning.",
+        tags: ["Documentation", "Strategy", "UI/UX Design", "Figma", "Notion", "Bootstrap Studio"],
+        details: {
+            problem: "Consolidating and presenting the diverse body of work completed during a 9-month graduate assistantship contract at BRBytes, demonstrating the value delivered across multiple domains like database management, UI/UX, and strategic planning.",
+            solution: "A comprehensive presentation was created using Notion to serve as a living document and final report. It systematically detailed all major contributions, including database schema analysis, full website and dashboard UI/UX redesigns (prototyped in Figma and Bootstrap Studio), strategic SWOT analysis, and various graphic design assets.",
+            techStack: ["Notion", "Figma", "Bootstrap Studio", "SQL", "Canva"],
+            businessImpact: "This exit presentation provided the BRBytes team with a clear, organized, and lasting archive of the project contributions. It established a valuable knowledge base for future team members, ensuring project continuity and demonstrating a repeatable process for strategic review and documentation.",
+            liveUrl: "https://www.notion.so/sinasb/Exit-Presentation-c97330d4d29c4c15a10c13a72a508dee?pvs=4"
+        }
     }
 ];
