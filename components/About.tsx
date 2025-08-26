@@ -1,10 +1,5 @@
-import React from 'react';
 
-const skills = {
-    "Data & Analytics": ["SQL", "Excel", "R", "Python", "Tableau", "Power BI", "SAS JMP", "BigQuery", "Statistics", "Forecasting"],
-    "Design & Prototyping": ["Figma", "Notion", "Canva", "Inkscape", "UI/UX Design", "Prototyping", "Bootstrap Studio"],
-    "Core Competencies": ["Systems Thinking", "Project Management", "Strategic Planning", "Communication", "Problem Solving", "Process Optimization"]
-};
+import React from 'react';
 
 const testimonials = [
     {
@@ -23,6 +18,7 @@ const testimonials = [
         title: "Senior Program Manager, Health Care Tech"
     }
 ];
+
 
 const About = () => {
     return (
@@ -44,18 +40,15 @@ const About = () => {
                         Described as a "Translator," I excel at bridging gaps between different disciplines, synthesizing complex ideas, and making them accessible. This ability allows me to facilitate collaboration and drive innovation in dynamic, fast-paced environments. I am passionate about helping individuals and organizations achieve holistic transformations.
                     </p>
                 </div>
-                <div className="space-y-8">
-                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white">My Skills</h3>
-                    {Object.entries(skills).map(([category, skillList]) => (
-                        <div key={category}>
-                            <h4 className="font-semibold text-lg text-gray-800 dark:text-gray-100 mb-3">{category}</h4>
-                            <div className="flex flex-wrap gap-2">
-                                {skillList.map(skill => (
-                                    <span key={skill} className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium px-3 py-1.5 rounded-md">{skill}</span>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
+                <div className="space-y-4">
+                     <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Core Competencies</h3>
+                    <ul className="list-disc list-inside space-y-2 text-lg text-gray-600 dark:text-brand-light">
+                        <li>Systems Thinking & Modeling</li>
+                        <li>Strategic Planning & Analysis</li>
+                        <li>Data-Driven Decision Making</li>
+                        <li>Process Optimization & Automation</li>
+                        <li>Cross-Functional Communication</li>
+                    </ul>
                 </div>
             </div>
             

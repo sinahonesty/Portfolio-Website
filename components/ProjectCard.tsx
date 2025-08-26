@@ -1,6 +1,6 @@
+
 import React from 'react';
 import type { Project } from '../types';
-import ProjectIcon from './ProjectIcon';
 
 interface ProjectCardProps {
     project: Project;
@@ -11,19 +11,25 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelect, style }) => {
     return (
         <div 
-            className="group bg-white dark:bg-brand-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer opacity-0 animate-fade-in-up flex flex-col border border-gray-200 dark:border-transparent"
+            className="group bg-white dark:bg-brand-secondary rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer opacity-0 animate-fade-in-up flex flex-col justify-between border border-gray-200 dark:border-gray-800 h-full p-6"
             onClick={onSelect}
             style={style}
         >
-            <div className="h-56 bg-gray-100 dark:bg-brand-dark flex items-center justify-center transition-colors duration-300 group-hover:bg-gray-200 dark:group-hover:bg-gray-800">
-                <ProjectIcon category={project.category} className="h-20 w-20 text-gray-400 dark:text-gray-600 group-hover:text-brand-accent transition-colors duration-300" />
+            {/* Top Content: Category, Title, Description */}
+            <div>
+                <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-brand-accent bg-brand-accent/10 rounded-full mb-4">
+                    {project.category}
+                </span>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
+                <p className="text-gray-600 dark:text-brand-light text-sm mb-4">
+                    {project.description}
+                </p>
             </div>
-            <div className="p-6 flex-grow flex flex-col">
-                <span className="text-xs font-semibold text-brand-accent uppercase">{project.category}</span>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mt-2 mb-2 truncate">{project.title}</h3>
-                <p className="text-gray-600 dark:text-brand-light text-sm flex-grow">{project.description}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                    {project.tags.slice(0, 3).map(tag => (
+            
+            {/* Bottom Content: Tags */}
+            <div>
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-200 dark:border-gray-700/50">
+                    {project.tags.slice(0, 4).map(tag => (
                         <span key={tag} className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs font-medium px-2.5 py-1 rounded-full">{tag}</span>
                     ))}
                 </div>

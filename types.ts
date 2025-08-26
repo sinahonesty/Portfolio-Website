@@ -1,3 +1,4 @@
+
 export enum ProjectCategory {
     Automation = "Automation",
     Analytics = "Analytics",
@@ -28,4 +29,18 @@ export interface Project {
 export interface Message {
     sender: 'user' | 'ai';
     text: string;
+}
+
+export interface SoftSkill {
+  name: string;
+  yrsOfExp: string;
+  meaning: string;
+  level: string;
+  usefulIn: string[];
+}
+
+export interface TechnicalSkill {
+  name: string;
+  level: string;
+  usefulIn: string[];
 }
