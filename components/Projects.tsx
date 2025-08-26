@@ -1,12 +1,12 @@
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import type { Project } from '../types';
 import { ProjectCategory } from '../types';
 import ProjectCard from './ProjectCard';
 import { PROJECT_CATEGORIES } from '../constants';
 import { softSkills, technicalSkills } from '../data/skills';
 
-const allSkillCategories = [...new Set([...softSkills, ...technicalSkills].flatMap(s => s.usefulIn))].sort();
+const allSkillCategories = [...new Set(technicalSkills.flatMap(s => s.usefulIn))].sort();
 
 const StarRating = ({ level }: { level: number }) => (
     <div className="flex items-center" title={`${level} out of 5`}>
@@ -49,6 +49,10 @@ const SkillsSection = () => {
     const [activeTab, setActiveTab] = useState<'technical' | 'soft'>('technical');
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
+    useEffect(() => {
+        setSelectedCategories([]);
+    }, [activeTab]);
+
     const handleCategoryToggle = (category: string) => {
         setSelectedCategories(prev =>
             prev.includes(category)
@@ -58,41 +62,42 @@ const SkillsSection = () => {
     };
 
     const filteredTechSkills = useMemo(() => {
-        if (selectedCategories.length === 0) return technicalSkills;
-        return technicalSkills.filter(skill =>
-            selectedCategories.every(category => skill.usefulIn.includes(category))
-        ).sort((a, b) => parseInt(b.level) - parseInt(a.level));
+        const filtered = selectedCategories.length === 0
+            ? technicalSkills
+            : technicalSkills.filter(skill =>
+                selectedCategories.every(category => skill.usefulIn.includes(category))
+              );
+        return [...filtered].sort((a, b) => parseInt(b.level) - parseInt(a.level));
     }, [selectedCategories]);
-
-    const filteredSoftSkills = useMemo(() => {
-        if (selectedCategories.length === 0) return softSkills;
-        return softSkills.filter(skill =>
-            selectedCategories.every(category => skill.usefulIn.includes(category))
-        ).sort((a, b) => parseInt(b.level) - parseInt(a.level));
-    }, [selectedCategories]);
+    
+    const sortedSoftSkills = useMemo(() => {
+        return [...softSkills].sort((a,b) => parseInt(b.level) - parseInt(a.level));
+    }, []);
 
     return (
-        <div className="space-y-12">
+        <div className="space-y-8">
             <h3 className="text-3xl font-bold text-center text-gray-900 dark:text-white">Skills Matrix</h3>
             <div className="flex justify-center border-b border-gray-200 dark:border-gray-700">
                 <button onClick={() => setActiveTab('technical')} className={`px-6 py-3 font-semibold transition-colors ${activeTab === 'technical' ? 'border-b-2 border-brand-accent text-brand-accent' : 'text-gray-500 hover:text-gray-800 dark:hover:text-gray-200'}`}>Technical Skills</button>
                 <button onClick={() => setActiveTab('soft')} className={`px-6 py-3 font-semibold transition-colors ${activeTab === 'soft' ? 'border-b-2 border-brand-accent text-brand-accent' : 'text-gray-500 hover:text-gray-800 dark:hover:text-gray-200'}`}>Soft Skills</button>
             </div>
             
-            <div>
-                <h4 className="font-semibold text-center text-gray-700 dark:text-brand-light mb-4">Filter by Utility</h4>
-                <div className="flex flex-wrap justify-center gap-2">
-                    {allSkillCategories.map(cat => (
-                         <button 
-                            key={cat}
-                            onClick={() => handleCategoryToggle(cat)}
-                            className={`px-3 py-1.5 text-sm font-medium rounded-full border transition-colors duration-200 ${selectedCategories.includes(cat) ? 'bg-brand-accent text-white border-brand-accent' : 'bg-white dark:bg-brand-secondary border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
-                         >
-                            {cat}
-                        </button>
-                    ))}
+            {activeTab === 'technical' && (
+                 <div>
+                    <h4 className="font-semibold text-center text-gray-700 dark:text-brand-light mb-4">Filter by Utility</h4>
+                    <div className="flex flex-wrap justify-center gap-2">
+                        {allSkillCategories.map(cat => (
+                             <button 
+                                key={cat}
+                                onClick={() => handleCategoryToggle(cat)}
+                                className={`px-3 py-1.5 text-sm font-medium rounded-full border transition-colors duration-200 ${selectedCategories.includes(cat) ? 'bg-brand-accent text-white border-brand-accent' : 'bg-white dark:bg-brand-secondary border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
+                             >
+                                {cat}
+                            </button>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
 
             <div>
                 {activeTab === 'technical' && (
@@ -114,7 +119,7 @@ const SkillsSection = () => {
                 )}
                 {activeTab === 'soft' && (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                        {filteredSoftSkills.map(skill => (
+                        {sortedSoftSkills.map(skill => (
                            <SoftSkillCard key={skill.name} skill={skill} />
                         ))}
                     </div>
