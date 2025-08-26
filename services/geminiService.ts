@@ -2,6 +2,7 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 import type { Message } from '../types';
 import { softSkills, technicalSkills } from '../data/skills';
+import { projects } from '../data/projects';
 
 const API_KEY = process.env.API_KEY;
 
@@ -13,21 +14,26 @@ const ai = new GoogleGenAI({ apiKey: API_KEY });
 
 let chat: Chat | null = null;
 
-const formatSkillsForPrompt = (): string => {
+const formatContextForPrompt = (): string => {
     const techSkillsString = technicalSkills.map(s => `- ${s.name} (Level: ${s.level}/5, Used for: ${s.usefulIn.join(', ')})`).join('\n');
     const softSkillsString = softSkills.map(s => `- ${s.name} (Experience: ${s.yrsOfExp}, Meaning: ${s.meaning})`).join('\n');
+    const projectsString = projects.map(p => 
+        `  - Title: ${p.title}\n    Category: ${p.category}\n    Description: ${p.description}\n    Technologies: ${p.tags.join(', ')}`
+    ).join('\n\n');
 
     return `
 ---
-CONTEXT: SINA'S SKILLS AND PORTFOLIO
+CONTEXT: SINA'S PORTFOLIO DATA
 Sina's core philosophy is 'Automate the routine, elevate the human.' 
+You must use the following structured data to answer questions about his skills, projects, and experience.
 
-Here is a summary of his skills:
+## PROJECTS
+${projectsString}
 
-## TECHNICAL SKILLS:
+## TECHNICAL SKILLS
 ${techSkillsString}
 
-## SOFT SKILLS:
+## SOFT SKILLS
 ${softSkillsString}
 ---
 `;
@@ -36,7 +42,7 @@ ${softSkillsString}
 
 const initializeChat = () => {
     if (!chat) {
-        const skillsContext = formatSkillsForPrompt();
+        const fullContext = formatContextForPrompt();
         chat = ai.chats.create({
             model: 'gemini-2.5-flash',
             config: {
@@ -45,7 +51,7 @@ const initializeChat = () => {
                 Use the detailed context provided below to answer questions with specifics.
                 Be professional, concise, and helpful. 
                 Politely decline to answer questions that are off-topic or unrelated to Sina's professional profile.
-                ${skillsContext}
+                ${fullContext}
                 `,
             },
         });

@@ -12,6 +12,19 @@ import type { Project } from '../types';
 export const projects: Project[] = [
     {
         id: 1,
+        title: "Interactive Portfolio with AI Assistant",
+        category: ProjectCategory.Automation,
+        description: "A dynamic, AI-powered portfolio website built from scratch to showcase skills and projects. Features a conversational AI assistant that provides detailed, context-aware answers about my capabilities.",
+        tags: ['React', 'TypeScript', 'TailwindCSS', 'Gemini API', 'UI/UX Design'],
+        details: {
+            problem: "A standard static portfolio can be passive. It doesn't allow recruiters or visitors to actively inquire about specific skills or the nuances of a project. There's a need for a more engaging and informative experience.",
+            solution: "Built a modern, single-page application using React and TypeScript. The key feature is an integrated AI assistant powered by the Gemini API. The assistant's system prompt is dynamically populated with structured data about all my skills and projects, allowing it to answer specific questions accurately. The entire UI/UX was designed to be clean, professional, and interactive.",
+            techStack: ['React', 'TypeScript', 'TailwindCSS', 'Google Gemini API'],
+            businessImpact: "This project not only showcases my frontend and AI integration skills but also serves as a practical demonstration of how AI can create more personalized and interactive user experiences. It acts as an intelligent, 24/7 representative of my professional capabilities."
+        }
+    },
+    {
+        id: 2,
         title: "Statistical Deep Dive into World Happiness",
         category: ProjectCategory.Analytics,
         description: "A comprehensive statistical analysis of the World Happiness Index, building predictive models and testing hypotheses about global well-being pre- and post-COVID.",
@@ -45,7 +58,7 @@ happiness_ttest <- t.test(before, after, paired = TRUE, alternative = "less")
         }
     },
     {
-        id: 2,
+        id: 3,
         title: "Systems Dynamics Model of School Segregation",
         category: ProjectCategory.Design,
         description: "A causal loop diagram developed using Systems Dynamics principles to model the complex, interconnected factors contributing to school racism and segregation in San Francisco.",
@@ -74,7 +87,7 @@ public education racist policies = A FUNCTION OF( SFUSD goals of equity and dive
         }
     },
     {
-        id: 3,
+        id: 4,
         title: "Data Mining for Fuel Consumption Insights",
         category: ProjectCategory.Analytics,
         description: "An analysis of vehicle data to understand and model the factors influencing fuel consumption, using data mining techniques within Microsoft Excel.",
@@ -109,7 +122,7 @@ public education racist policies = A FUNCTION OF( SFUSD goals of equity and dive
         }
     },
     {
-        id: 4,
+        id: 5,
         title: "Simple CLI To-Do List",
         category: ProjectCategory.Fun,
         description: "A lightweight, command-line interface (CLI) to-do list application built with Python for simple and efficient task tracking.",
@@ -150,7 +163,7 @@ while user_input != '4':
         }
     },
     {
-        id: 5,
+        id: 6,
         title: "SQL Customer Behavior & Revenue Analysis",
         category: ProjectCategory.Analytics,
         description: "A comprehensive SQL-based analysis of customer purchasing behavior, identifying top customers, peak sales periods, and the most profitable products from transactional data.",
@@ -183,7 +196,7 @@ LIMIT 10;
         }
     },
     {
-        id: 6,
+        id: 7,
         title: "Interactive Sales Performance Dashboard",
         category: ProjectCategory.Analytics,
         description: "An interactive Tableau dashboard for executive-level review of sales performance, visualizing key metrics like regional sales, product performance, and profit trends.",
@@ -218,7 +231,7 @@ LIMIT 10;
         }
     },
     {
-        id: 7,
+        id: 8,
         title: "Comprehensive Website UI/UX Redesign",
         category: ProjectCategory.Design,
         description: "A complete UI/UX overhaul for the BRBytes educational platform, focusing on improving user navigation and modernizing the interface for diverse audiences like students, teachers, and administrators.",
@@ -232,7 +245,7 @@ LIMIT 10;
         }
     },
     {
-        id: 8,
+        id: 9,
         title: "Interactive Admin Dashboard",
         category: ProjectCategory.Design,
         description: "Designed and coded a new, responsive admin dashboard using Bootstrap Studio to improve data visualization and management for the BRBytes team.",
@@ -246,7 +259,7 @@ LIMIT 10;
         }
     },
     {
-        id: 9,
+        id: 10,
         title: "Academic Journal Web Scraper",
         category: ProjectCategory.Automation,
         description: "Developed a Python-based web scraper to automate the collection of academic journal data. The project is currently blocked by bot detection but showcases scripting and automation capabilities.",
@@ -260,7 +273,7 @@ LIMIT 10;
         }
     },
     {
-        id: 10,
+        id: 11,
         title: "Credit Risk Classification",
         category: ProjectCategory.Analytics,
         description: "A predictive model to assess home equity loan default risk, comparing Decision Tree, Bootstrap Forest, and Boosted Tree models.",
@@ -273,7 +286,7 @@ LIMIT 10;
         }
     },
     {
-        id: 11,
+        id: 12,
         title: "Louisiana Crash Data Dashboard",
         category: ProjectCategory.Analytics,
         description: "An interactive Tableau dashboard visualizing Louisiana's crash data to identify trends related to age, time of day, and historical patterns for public safety analysis.",
@@ -286,7 +299,7 @@ LIMIT 10;
         }
     },
     {
-        id: 12,
+        id: 13,
         title: "Fake Job Postings Classifier",
         category: ProjectCategory.Automation,
         description: "A machine learning model built in Python to automatically classify job postings as fraudulent or legitimate, protecting job seekers from scams.",
@@ -317,7 +330,7 @@ print(f'Tuned Model Accuracy: {accuracy:.2f}')
         }
     },
     {
-        id: 13,
+        id: 14,
         title: "Energy Use Forecasting Model",
         category: ProjectCategory.Analytics,
         description: "A forecasting model developed in Excel to predict hourly energy loads for a utility company across fifteen regions using temperature and calendar data.",
@@ -330,7 +343,7 @@ print(f'Tuned Model Accuracy: {accuracy:.2f}')
         }
     },
     {
-        id: 14,
+        id: 15,
         title: "Sedaghat Art Center Website & Branding",
         category: ProjectCategory.Design,
         description: "Led the full branding and web presence for a new family-owned art center, from logo design to a fully functional e-commerce website.",
@@ -344,7 +357,7 @@ print(f'Tuned Model Accuracy: {accuracy:.2f}')
         }
     },
     {
-        id: 15,
+        id: 16,
         title: "'Impact' Mobile App Prototype",
         category: ProjectCategory.Design,
         description: "Designed a high-fidelity mobile app prototype for a 48-hour startup weekend competition, leading the team to a second-place finish.",
@@ -358,7 +371,7 @@ print(f'Tuned Model Accuracy: {accuracy:.2f}')
         }
     },
     {
-        id: 16,
+        id: 17,
         title: "3D Skateboard Rendering",
         category: ProjectCategory.Fun,
         description: "A 3D modeling and rendering project to create a realistic skateboard, completed as part of an advanced graphic design course.",
@@ -372,7 +385,7 @@ print(f'Tuned Model Accuracy: {accuracy:.2f}')
         }
     },
     {
-        id: 17,
+        id: 18,
         title: "Academic Thesis Design & Workshop",
         category: ProjectCategory.Design,
         description: "Designed and facilitated a virtual workshop and comprehensive thesis on redefining future library systems, utilizing Systems Thinking and socio-technical design methods.",
@@ -385,7 +398,7 @@ print(f'Tuned Model Accuracy: {accuracy:.2f}')
         }
     },
     {
-        id: 18,
+        id: 19,
         title: "BRBytes Project Showcase & Exit Presentation",
         category: ProjectCategory.Design,
         description: "A capstone presentation summarizing a 9-month contract, showcasing work on database management, website/dashboard redesign, and strategic planning.",
